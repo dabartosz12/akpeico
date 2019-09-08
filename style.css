@@ -7,12 +7,15 @@ body {
     background: #211E34;
     color: #fff;
     font-family: sans-serif;
+    text-align: center;
+    animation: Animation .5s ease-in-out;
 }
 
 header {
     height: 10vh;
     width: 70%;
     margin: auto;
+    position: relative;
 }
 
 nav {
@@ -41,6 +44,8 @@ p:nth-child(2) {
 h1 {
     text-transform: uppercase;
     font-weight: bolder;
+    z-index: -123123213213 !important;
+    position: relative;
 }
 
 button {
@@ -53,7 +58,29 @@ button {
     outline: none;
     letter-spacing: 0.2em;
     margin-top: 30px;
+    position: relative;
+    transition: .2s cubic-bezier(0.645, 0.045, 0.355, 1);
     margin-bottom: 30px;
+}
+
+button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: #fff;
+    transition: .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    z-index: -2;
+}
+
+button:hover {
+    color: #000;
+}
+
+button:hover::before {
+    width: 100%;
 }
 
 .container {
@@ -75,13 +102,15 @@ button {
     text-align: center;
     letter-spacing: 0.1em;
     text-transform: capitalize;
-    position: absolute;
+    position: fixed;
     background: #fff;
     border-radius: 4px;
     color: #000 !important;
-    padding: 40px 70px;
-    z-index: 10000021010;
-    display: none;
+    padding: 60px 120px;
+    z-index: 1222 !important;
+    visibility: hidden;
+    opacity: 0;
+    transition: .2s;
 }
 
 .backgorund{
@@ -89,11 +118,43 @@ button {
     background: #000000bc;
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+    z-index: -10;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+}
+
+.main-content {
+    font-size: 1.3rem;
+    max-width: 500px;
+    margin: auto;
+    text-align: left;
+    line-height: 35px;
+}
+
+span {
+    letter-spacing: 0.3em;
+    position: relative;
+    font-weight: bolder;
+}
+
+span::before {
+    content: '';
+    background: rgb(211, 31, 31);
+    width: 100%;
+    height: 0%;
     z-index: -1;
-    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: .2s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+
+span:hover::before {
+    height: 40%;
 }
 
 footer {
@@ -101,5 +162,21 @@ footer {
     text-transform: uppercase;
     font-size: .65em;
     opacity: .6;
+    position: relative;
     letter-spacing: 0.2em;
+    z-index: -1;
+}
+
+@media screen and (max-width: 900px) {
+
+}
+
+
+@keyframes Animation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
