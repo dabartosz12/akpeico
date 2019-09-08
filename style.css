@@ -132,6 +132,10 @@ button:hover::before {
     max-width: 500px;
     margin: auto;
     text-align: left;
+    height: 90vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     line-height: 35px;
 }
 
